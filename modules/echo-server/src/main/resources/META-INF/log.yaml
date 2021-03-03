@@ -1,0 +1,5 @@
+echo-server: # Коренной домен журнала
+  level: trace
+  client:    # Домен, в котором размещены все поддомены клиентов
+    level: info
+    output: ktlo.log.outputs.ConsoleOutput

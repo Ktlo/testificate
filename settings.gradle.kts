@@ -5,13 +5,13 @@ pluginManagement {
     }
 }
 
-rootProject.name = "testing"
+rootProject.name = "testificate"
 
 val names = listOf(
     "intspace",
     "log",
     "zint",
-    "app"
+    "echo-server"
 )
 
 names.forEach { name ->

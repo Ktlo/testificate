@@ -1,5 +1,8 @@
 package ktlo.log
 
+/**
+ * Уровни журналирования представлены в порядке убывания важности сообщения.
+ */
 public enum class Level {
     None, Fatal, Error, Warning, Info, Debug, Trace;
 

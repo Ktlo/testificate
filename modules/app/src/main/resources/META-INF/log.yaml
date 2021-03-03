@@ -1,4 +1,0 @@
-echo-server:
-  level: fatal
-  client:
-    level: trace

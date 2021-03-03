@@ -10,12 +10,23 @@ import java.io.Reader
 import kotlin.reflect.KClass
 import kotlin.reflect.full.isSubclassOf
 
+/**
+ * Конфигурация журнала. Используется для настройки объекта журнала [Log].
+ *
+ * @property domain настроеваемый этим объектом домен и его поддомены
+ * @property level максимальный уровень сообщений, который могут быть выведены в журнал
+ * @property output класс [Output], реализующий стратегию вывода сообщений для данного домена и его поддоменов
+ */
 public data class Configuration(
     val domain: String,
     val level: Level = Level.Info,
     val output: KClass<out Output>
 ) {
     public companion object {
+
+        /**
+         * Конфигурация, которая не выводит никуда сообщения
+         */
         public val silent: Configuration = Configuration(domain = "", level = Level.None, VoidOutput::class)
     }
 }
@@ -40,7 +51,7 @@ internal data class ConfNode(
     }
 }
 
-private val loader = Configuration::class.java.classLoader
+private val loader = Log::class.java.classLoader
 
 private fun loadOutput(output: String): KClass<out Output> {
     val klass = loader.loadClass(output).kotlin
